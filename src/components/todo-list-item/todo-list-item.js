@@ -10,14 +10,23 @@ export  default class TodoListItem extends Component{
     };
 
     onLabelClick = () => {
-        this.setState({
-            done: true
+        this.setState(({ done }) => {
+            return {
+                done: !done
+            };
         });
     };
 
+    //тут используется прием с передачей не объекта в setState, а функции
+    //которая возвращает объект . Это говорит реакту вызывать функцию только
+    //когда состояние state будет финальным
+    //если новое состояние зависит от предыдущего состояния то обязательно
+    //нужно использовать функцию, а не просто объект
     onMarkImportant = () => {
-        this.setState({
-            important: true
+        this.setState(({ important }) => {
+            return {
+                important: !important
+            };
         });
     };
 
