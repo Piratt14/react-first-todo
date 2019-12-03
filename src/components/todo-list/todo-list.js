@@ -1,5 +1,7 @@
 import React from 'react';
-import TodoListItem from "./todo-list-item";
+
+import TodoListItem from "../todo-list-item";
+import './todo-list.css';
 
 const TodoList = ({ todos }) => {
 
@@ -11,14 +13,14 @@ const TodoList = ({ todos }) => {
             // { ... item } - использование spread оператора для объекта
             // и одновременно с тем использование свойства
             // { label: label } === { label
-            <li key={id}>
+            <li key={id} className="list-group-item">
                 <TodoListItem { ...itemProps } />
             </li>
         );
     });
 
     return (
-        <ul>
+        <ul className="list-group todo-list">
             { elements }
         </ul>
     );
